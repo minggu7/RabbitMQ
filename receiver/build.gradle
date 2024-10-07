@@ -1,0 +1,26 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.3.4' // 현재 사용 중인 Spring Boot 버전
+    id 'io.spring.dependency-management' version '1.1.6' // 현재 사용 중인 Dependency Management 버전으로 변경
+}
+
+group = 'org.example'
+version = '0.0.1-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web' // Spring Web
+    implementation 'org.springframework.boot:spring-boot-starter-amqp' // RabbitMQ
+    compileOnly 'org.projectlombok:lombok' // Lombok
+    annotationProcessor 'org.projectlombok:lombok' // Lombok annotation processor
+
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}
